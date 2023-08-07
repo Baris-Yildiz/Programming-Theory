@@ -7,6 +7,7 @@ public class Rocket : Enemy
     public Rocket()
     {
         Speed = 0.003f;
+        Damage = 10;
     }
 
 }

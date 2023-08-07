@@ -16,8 +16,6 @@ public class Enemy : MonoBehaviour
     private Rigidbody enemyRb;
 
     private float speed;
-
-    
     public float Speed
     {
         get
@@ -29,6 +27,19 @@ public class Enemy : MonoBehaviour
             speed = value;
         }
     }
+
+    private float damage;
+    public float Damage
+    {
+        get
+        {
+            return damage;
+        }
+        set {
+            damage = value;
+        }
+    }
+
 
     void Start()
     {

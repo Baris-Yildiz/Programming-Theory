@@ -29,17 +29,11 @@ public class GameManager : MonoBehaviour
             Instance = this;
         }
 
-        StartCoroutine(SpawnEnemyWave());
-    }
-
-    void Update()
-    {
-        
+        StartCoroutine(SpawnInitialWave());
     }
 
     public IEnumerator SpawnEnemyWave()
     {
-        yield return new WaitForSeconds(3);
 
         enemiesLeft = enemiesToSpawn;
 
@@ -57,6 +51,12 @@ public class GameManager : MonoBehaviour
         yield return new WaitUntil(AllEnemiesDefeated);
         enemiesToSpawn++;
 
+        StartCoroutine(SpawnEnemyWave());
+    }
+
+    public IEnumerator SpawnInitialWave()
+    {
+        yield return new WaitForSeconds(3);
         StartCoroutine(SpawnEnemyWave());
     }
 
