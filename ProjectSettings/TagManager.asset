@@ -6,6 +6,7 @@ TagManager:
   tags:
   - World
   - Enemy
+  - Enemies
   layers:
   - Default
   - TransparentFX
