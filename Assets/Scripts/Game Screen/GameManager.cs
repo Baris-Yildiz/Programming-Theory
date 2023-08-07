@@ -12,6 +12,14 @@ public class GameManager : MonoBehaviour
     public GameObject[] enemies;
     private GameObject enemyContainer;
 
+    public enum SpawnDirection
+    {
+        Right,
+        Left,
+        Top,
+        Bottom
+    }
+
     void Start()
     {
         enemyContainer = GameObject.FindWithTag("Enemies");
@@ -59,16 +67,34 @@ public class GameManager : MonoBehaviour
 
     void SpawnEnemy(GameObject enemy)
     {
-        Vector3 spawnPoint = Vector3.one;
+        int direction = Random.Range(0,4);
+        Vector3 spawnPoint = Vector3.zero;
+
+        switch ((SpawnDirection)direction)
+        {
+            case SpawnDirection.Bottom:
+                spawnPoint = new Vector3(Random.Range(-5,5),-3,0);
+                break;
+            case SpawnDirection.Top:
+                spawnPoint = new Vector3(Random.Range(-5, 5), 3, 0);
+                break;
+            case SpawnDirection.Right:
+                spawnPoint = new Vector3(5, Random.Range(-3, 3), 0);
+                break;
+            case SpawnDirection.Left:
+                spawnPoint = new Vector3(-5, Random.Range(-3,3), 0);
+                break;
+        }
+        
         enemy.GetComponent<Rigidbody>().velocity = Vector3.zero;
         enemy.transform.position = spawnPoint;
         enemy.SetActive(true);
     }
-
+    /*
     public void DestroyEnemy(GameObject enemy)
     {
         enemiesLeft--;
         enemy.SetActive(false);
-    }
+    }*/
 
 }

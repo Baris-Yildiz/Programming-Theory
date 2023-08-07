@@ -8,7 +8,8 @@ public class WorldScript : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            GameManager.Instance.DestroyEnemy(other.gameObject);
+            StartCoroutine(other.GetComponent<DestroyEnemy>().SelfDestruct());
+            //GameManager.Instance.DestroyEnemy(other.gameObject);
         }
     }
 }

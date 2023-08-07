@@ -16,6 +16,8 @@ public class Enemy : MonoBehaviour
     private Rigidbody enemyRb;
 
     private float speed;
+
+    
     public float Speed
     {
         get
@@ -32,19 +34,25 @@ public class Enemy : MonoBehaviour
     {
         world = GameObject.FindGameObjectWithTag("World");
         enemyRb = GetComponent<Rigidbody>();
+
+        
+        
     }
 
 
     void Update()
     {
         transform.LookAt(world.transform);
-        enemyRb.AddForce(Time.deltaTime * speed * transform.forward, ForceMode.Impulse);
+        enemyRb.AddForce(speed * transform.forward, ForceMode.Impulse);
     }
 
     private void OnMouseDown()
     {
-        GameManager.Instance.DestroyEnemy(gameObject);
+        StartCoroutine(gameObject.GetComponent<DestroyEnemy>().SelfDestruct());
+        //GameManager.Instance.DestroyEnemy(gameObject);
     }
+
+    
 
 
     
