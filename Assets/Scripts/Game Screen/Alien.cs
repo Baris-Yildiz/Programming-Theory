@@ -6,7 +6,7 @@ public class Alien : Enemy
 {
     public Alien()
     {
-        Speed = 5;
+        Speed = 0.1f;
     }
   
 }

@@ -28,17 +28,17 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         world = GameObject.FindGameObjectWithTag("World");
         enemyRb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
+
     void Update()
     {
-        enemyRb.AddForce(Time.deltaTime * speed * (world.transform.position - transform.position), ForceMode.Impulse);
+        transform.LookAt(world.transform);
+        enemyRb.AddForce(Time.deltaTime * speed * transform.forward, ForceMode.Impulse);
     }
 
     private void OnMouseDown()
