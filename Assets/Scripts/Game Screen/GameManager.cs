@@ -90,11 +90,5 @@ public class GameManager : MonoBehaviour
         enemy.transform.position = spawnPoint;
         enemy.SetActive(true);
     }
-    /*
-    public void DestroyEnemy(GameObject enemy)
-    {
-        enemiesLeft--;
-        enemy.SetActive(false);
-    }*/
 
 }

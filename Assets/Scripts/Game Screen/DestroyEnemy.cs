@@ -4,27 +4,25 @@ using UnityEngine;
 
 public class DestroyEnemy : MonoBehaviour
 {
-    ParticleSystem explosion;
+    public GameObject explosion;
+    public static DestroyEnemy Instance;
 
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < transform.childCount; i++)
+        if (Instance == null)
         {
-            if (transform.GetChild(i).CompareTag("Explosion"))
-            {
-                explosion = GetComponentInChildren<ParticleSystem>();
-            }
+            Instance = this;
         }
     }
 
-    public IEnumerator SelfDestruct()
+    public void ExplodeEnemy(GameObject enemy)
     {
+        Instantiate(explosion, enemy.transform.position, Quaternion.identity);
+        enemy.SetActive(false);
         GameManager.Instance.enemiesLeft--;
-        explosion.Play();
-        yield return new WaitForSeconds(0.15f);
-        gameObject.SetActive(false);
     }
+
 
 
 }

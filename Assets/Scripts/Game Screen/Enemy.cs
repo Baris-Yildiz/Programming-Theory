@@ -34,9 +34,6 @@ public class Enemy : MonoBehaviour
     {
         world = GameObject.FindGameObjectWithTag("World");
         enemyRb = GetComponent<Rigidbody>();
-
-        
-        
     }
 
 
@@ -48,8 +45,7 @@ public class Enemy : MonoBehaviour
 
     private void OnMouseDown()
     {
-        StartCoroutine(gameObject.GetComponent<DestroyEnemy>().SelfDestruct());
-        //GameManager.Instance.DestroyEnemy(gameObject);
+        DestroyEnemy.Instance.ExplodeEnemy(gameObject);
     }
 
     
