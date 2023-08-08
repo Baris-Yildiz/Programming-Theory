@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+
     private GameObject world;
     public GameObject World
     {
@@ -13,7 +14,16 @@ public class Enemy : MonoBehaviour
         }
     }
 
+
     private Rigidbody enemyRb;
+    public Rigidbody EnemyRb
+    {
+        get
+        {
+            return enemyRb;
+        }
+    }
+
 
     private float speed;
     public float Speed
@@ -28,6 +38,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
+
     private float damage;
     public float Damage
     {
@@ -41,7 +52,7 @@ public class Enemy : MonoBehaviour
     }
 
 
-    void Start()
+    public void Start()
     {
         world = GameObject.FindGameObjectWithTag("World");
         enemyRb = GetComponent<Rigidbody>();
@@ -58,9 +69,5 @@ public class Enemy : MonoBehaviour
     {
         DestroyEnemy.Instance.ExplodeEnemy(gameObject);
     }
-
-    
-
-
     
 }
