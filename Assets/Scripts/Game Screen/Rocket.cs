@@ -4,32 +4,31 @@ using UnityEngine;
 
 public class Rocket : Enemy
 {
+    protected override void ResetProperties()
+    {
+        Speed = 0.002f * DifficultyManager.difficultyMultiplier;
+        Damage = 10 * DifficultyManager.difficultyMultiplier;
+    }
+
     void Start()
     {
+        ResetProperties();
         base.Start();
         StartCoroutine(IncreaseSpeed());
     }
 
-
-
-    public Rocket()
-    {
-        Speed = 0.002f;
-        Damage = 10;
-        
-    }
-
     IEnumerator IncreaseSpeed()
     {
-        yield return new WaitForSeconds(0.6f);
-        Speed += 0.001f;
+        yield return new WaitForSeconds(1f);
+        Speed *= 2;
         StartCoroutine(IncreaseSpeed());
     }
 
     private void OnEnable()
     {
-        Speed = 0.002f;
+        ResetProperties();
         StartCoroutine(IncreaseSpeed());
     }
 
+    
 }

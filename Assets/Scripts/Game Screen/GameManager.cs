@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitUntil(AllEnemiesDefeated);
         enemiesToSpawn++;
+        DifficultyManager.difficultyMultiplier += 0.25f;
 
         StartCoroutine(SpawnEnemyWave());
     }

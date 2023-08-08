@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class Alien : Enemy
 {
+    protected override void ResetProperties()
+    {
+        Speed = 0.001f * DifficultyManager.difficultyMultiplier;
+        Damage = 1 * DifficultyManager.difficultyMultiplier;
+    }
+
     private void Start()
     {
         base.Start();
+        ResetProperties();
         StartCoroutine(StopAlien());
-    }
-
-    public Alien()
-    {
-        Speed = 0.001f;
-        Damage = 1;
     }
 
     IEnumerator StopAlien()
@@ -41,7 +42,7 @@ public class Alien : Enemy
 
     private void OnEnable()
     {
-        Speed = 0.001f;
+        ResetProperties();
         StartCoroutine(StopAlien());
     }
 

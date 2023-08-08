@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public abstract class Enemy : MonoBehaviour
 {
 
     private GameObject world;
@@ -69,5 +69,7 @@ public class Enemy : MonoBehaviour
     {
         DestroyEnemy.Instance.ExplodeEnemy(gameObject);
     }
-    
+
+    protected abstract void ResetProperties();
+
 }
