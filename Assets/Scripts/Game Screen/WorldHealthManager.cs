@@ -40,7 +40,7 @@ public class WorldHealthManager : MonoBehaviour
                 destroyed = true;
                 ChangeIntoDestroyedColor();
                 explosion.Play();
-                GameUIHandler.Instance.EndGame();
+                GameManager.Instance.EndGame();
             }
         } else 
         {

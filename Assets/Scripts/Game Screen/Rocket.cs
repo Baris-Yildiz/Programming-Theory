@@ -6,8 +6,8 @@ public class Rocket : Enemy
 {
     protected override void ResetProperties()
     {
-        Speed = 0.002f * DifficultyManager.difficultyMultiplier;
-        Damage = 10 * DifficultyManager.difficultyMultiplier;
+        Speed = 0.002f * DifficultyManager.Instance.difficultyMultiplier;
+        Damage = 10 * DifficultyManager.Instance.difficultyMultiplier / 2;
     }
 
     void Start()

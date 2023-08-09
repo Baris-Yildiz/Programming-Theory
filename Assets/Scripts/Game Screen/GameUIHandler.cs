@@ -9,10 +9,7 @@ public class GameUIHandler : MonoBehaviour
     public GameObject gameOverScreen;
     void Start()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
+        Instance = this;
     }
 
     public void EndGame()

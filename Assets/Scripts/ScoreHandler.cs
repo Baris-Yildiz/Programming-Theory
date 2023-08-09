@@ -18,6 +18,7 @@ public class ScoreHandler : MonoBehaviour
         string json = JsonUtility.ToJson(timeScore);
         File.WriteAllText(Application.persistentDataPath + "/savefile.json", json);
     }
+
     public void LoadScore() 
     {
         string path = Application.persistentDataPath + "/savefile.json";

@@ -22,12 +22,9 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1;
         enemyContainer = GameObject.FindWithTag("Enemies");
-
-        if (Instance == null)
-        {
-            Instance = this;
-        }
+        Instance = this;
 
         StartCoroutine(SpawnInitialWave());
     }
@@ -50,7 +47,7 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitUntil(AllEnemiesDefeated);
         enemiesToSpawn++;
-        DifficultyManager.difficultyMultiplier += 0.5f;
+        DifficultyManager.Instance.difficultyMultiplier += 0.5f;
 
         StartCoroutine(SpawnEnemyWave());
     }
@@ -90,6 +87,19 @@ public class GameManager : MonoBehaviour
         enemy.GetComponent<Rigidbody>().velocity = Vector3.zero;
         enemy.transform.position = spawnPoint;
         enemy.SetActive(true);
+    }
+
+    public void EndGame()
+    {
+        GameUIHandler.Instance.EndGame();
+        Timer.Instance.StopTimer();
+        StartCoroutine(StopGame());
+    }
+
+    IEnumerator StopGame()
+    {
+        yield return new WaitForSeconds(2);
+        Time.timeScale = 0;
     }
 
 }

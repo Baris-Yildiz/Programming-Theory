@@ -10,10 +10,7 @@ public class DestroyEnemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
+        Instance = this;
     }
 
     public void ExplodeEnemy(GameObject enemy)
