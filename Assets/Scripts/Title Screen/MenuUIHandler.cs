@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 using UnityEditor;
 #endif
 
-public class MenuUIHandler : MonoBehaviour
+public class MenuUIHandler : DisplayBestScore
 {
     
     public void StartGame()

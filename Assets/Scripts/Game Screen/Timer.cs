@@ -6,8 +6,8 @@ using TMPro;
 public class Timer : MonoBehaviour
 {
     // Start is called before the first frame update
-    int seconds = 0;
-    int minutes = 0;
+    public int seconds = 0;
+    public int minutes = 0;
     string numberFormat = "00.##";
 
     public TextMeshProUGUI currentTimeText;
@@ -36,6 +36,6 @@ public class Timer : MonoBehaviour
 
     public void StopTimer()
     {
-        StopCoroutine(CountSeconds());
+        StopAllCoroutines();
     }
 }

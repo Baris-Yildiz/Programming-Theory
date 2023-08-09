@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public GameObject[] enemies;
     private GameObject enemyContainer;
 
+    ScoreHandler scoreHandler;
+
     public enum SpawnDirection
     {
         Right,
@@ -27,6 +29,8 @@ public class GameManager : MonoBehaviour
         Instance = this;
 
         StartCoroutine(SpawnInitialWave());
+
+        
     }
 
     public IEnumerator SpawnEnemyWave()
@@ -93,6 +97,7 @@ public class GameManager : MonoBehaviour
     {
         GameUIHandler.Instance.EndGame();
         Timer.Instance.StopTimer();
+        SaveScoreIfRecord();
         StartCoroutine(StopGame());
     }
 
@@ -100,6 +105,25 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         Time.timeScale = 0;
+    }
+
+    public void SaveScoreIfRecord()
+    {
+        ScoreHandler.TimeScore record = ScoreHandler.LoadScore();
+        Timer timerInstance = Timer.Instance;
+
+        if (record == null)
+        {
+            ScoreHandler.SaveScore(new ScoreHandler.TimeScore(timerInstance.minutes,
+                timerInstance.seconds));
+        }
+
+        else if (record.minutes * 60 + record.seconds < timerInstance.minutes * 60 + timerInstance.seconds)
+        {
+            ScoreHandler.TimeScore newHighScore = new ScoreHandler.TimeScore(timerInstance.minutes,
+                timerInstance.seconds);
+            ScoreHandler.SaveScore(newHighScore);
+        }
     }
 
 }

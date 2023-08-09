@@ -227,6 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be3c4193cd027b741874d92f6fe4cb9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficultyMultiplier: 1
 --- !u!1 &327475883
 GameObject:
   m_ObjectHideFlags: 0
@@ -487,6 +488,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f30d3c623e5830846b7a734d0d6a8175, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  seconds: 0
+  minutes: 0
   currentTimeText: {fileID: 327475885}
 --- !u!1 &670438853
 GameObject:
@@ -1878,6 +1881,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66f1452b767703d4c8b36b6fa570c563, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bestTimeText: {fileID: 1230677827}
   gameOverScreen: {fileID: 1679703512}
 --- !u!1 &2084627715
 GameObject:

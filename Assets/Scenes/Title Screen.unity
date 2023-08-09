@@ -1403,6 +1403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e8de623a095ba748b776429b155655f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bestTimeText: {fileID: 844547345}
 --- !u!1 &1881666140
 GameObject:
   m_ObjectHideFlags: 0

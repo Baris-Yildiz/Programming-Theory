@@ -3,30 +3,38 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
-public class ScoreHandler : MonoBehaviour
+public class ScoreHandler
 {
-    public static ScoreHandler Instance;
-    public TimeScore record;
 
     public class TimeScore
     {
-        public float time;
+        public float seconds;
+        public float minutes;
+
+        public TimeScore(float minutes, float seconds)
+        {
+            this.seconds = seconds;
+            this.minutes = minutes;
+        }
     }
 
-    public void SaveScore(TimeScore timeScore) 
+    public static void SaveScore(TimeScore timeScore) 
     {
         string json = JsonUtility.ToJson(timeScore);
         File.WriteAllText(Application.persistentDataPath + "/savefile.json", json);
     }
 
-    public void LoadScore() 
+    public static TimeScore LoadScore() 
     {
         string path = Application.persistentDataPath + "/savefile.json";
+        TimeScore record = null;
 
         if (File.Exists(path))
         {
             string json = File.ReadAllText(path);
             record = JsonUtility.FromJson<TimeScore>(json);
         }
+
+        return record;
     }
 }

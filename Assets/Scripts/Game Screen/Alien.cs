@@ -7,7 +7,7 @@ public class Alien : Enemy
     protected override void ResetProperties()
     {
         Speed = 0.001f * DifficultyManager.Instance.difficultyMultiplier;
-        Damage = 1 * DifficultyManager.Instance.difficultyMultiplier;
+        Damage = 10 * DifficultyManager.Instance.difficultyMultiplier;
     }
 
     private void Start()
