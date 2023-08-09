@@ -1,18 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class ScoreHandler : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static ScoreHandler Instance;
+    public TimeScore record;
+
+    public class TimeScore
     {
-        
+        public float time;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SaveScore(TimeScore timeScore) 
     {
-        
+        string json = JsonUtility.ToJson(timeScore);
+        File.WriteAllText(Application.persistentDataPath + "/savefile.json", json);
+    }
+    public void LoadScore() 
+    {
+        string path = Application.persistentDataPath + "/savefile.json";
+
+        if (File.Exists(path))
+        {
+            string json = File.ReadAllText(path);
+            record = JsonUtility.FromJson<TimeScore>(json);
+        }
     }
 }
