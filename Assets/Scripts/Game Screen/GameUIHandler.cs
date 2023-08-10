@@ -6,6 +6,7 @@ using TMPro;
 
 public class GameUIHandler : DisplayBestScore
 {
+    //INHERITANCE: UI Handlers inherit the DisplayBestScore class
     public static GameUIHandler Instance;
     public GameObject gameOverScreen;
 

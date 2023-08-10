@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Alien : Enemy
 {
-    protected override void ResetProperties()
+    //INHERITANCE: Enemy types inherit the Enemy class
+    protected override void ResetProperties()   //POLYMORPHISM: overrides parent method.
     {
         Speed = 0.001f * DifficultyManager.Instance.difficultyMultiplier;
         Damage = 10 * DifficultyManager.Instance.difficultyMultiplier;

@@ -9,7 +9,7 @@ using UnityEditor;
 
 public class MenuUIHandler : DisplayBestScore
 {
-    
+    //INHERITANCE: UI Handlers inherit the DisplayBestScore class
     public void StartGame()
     {
         SceneManager.LoadScene(1);

@@ -107,6 +107,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
     }
 
+    //ABSTRACTION: Method hides details about saving scores.
     public void SaveScoreIfRecord()
     {
         ScoreHandler.TimeScore record = ScoreHandler.LoadScore();

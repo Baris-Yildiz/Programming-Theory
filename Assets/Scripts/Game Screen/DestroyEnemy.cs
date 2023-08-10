@@ -15,6 +15,7 @@ public class DestroyEnemy : MonoBehaviour
 
     public void ExplodeEnemy(GameObject enemy)
     {
+        MusicManager.Instance.PlayAudio(Audio.EnemyExplosion);
         Instantiate(explosion, enemy.transform.position, Quaternion.identity);
         enemy.SetActive(false);
         GameManager.Instance.enemiesLeft--;

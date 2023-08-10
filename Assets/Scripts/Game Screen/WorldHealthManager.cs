@@ -14,7 +14,6 @@ public class WorldHealthManager : MonoBehaviour
 
     public ParticleSystem explosion;
     bool destroyed = false;
-    
 
     
     // Start is called before the first frame update
@@ -23,7 +22,7 @@ public class WorldHealthManager : MonoBehaviour
         Instance = this;
         healthBar = GetComponentInChildren<Slider>();
         healthBar.value = healthBar.maxValue;
-
+        
         firstDefaultColor = worldRenderer.materials[0].color;
         secondDefaultColor = worldRenderer.materials[1].color;
     }
@@ -40,6 +39,7 @@ public class WorldHealthManager : MonoBehaviour
                 destroyed = true;
                 ChangeIntoDestroyedColor();
                 explosion.Play();
+                MusicManager.Instance.PlayAudio(Audio.WorldExplosion);
                 GameManager.Instance.EndGame();
             }
         } else 

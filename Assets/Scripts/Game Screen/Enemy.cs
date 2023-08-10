@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour
 {
-
+    //ENCAPSULATION: getters and setters
     private GameObject world;
     public GameObject World
     {
@@ -70,6 +70,7 @@ public abstract class Enemy : MonoBehaviour
         DestroyEnemy.Instance.ExplodeEnemy(gameObject);
     }
 
-    protected abstract void ResetProperties();
+
+    protected abstract void ResetProperties();  
 
 }
