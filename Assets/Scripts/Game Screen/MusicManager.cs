@@ -6,9 +6,7 @@ public class MusicManager : MonoBehaviour
 {
     AudioSource audioSource;
 
-    public AudioClip plasmaShotSound;
-    public AudioClip enemyExplosion;
-    public AudioClip worldExplosion;
+    public AudioClip[] audioClips;
 
     public GameObject plasmaShot;
 
@@ -36,20 +34,7 @@ public class MusicManager : MonoBehaviour
 
     public void PlayAudio(Audio audio)
     {
-        AudioClip clipToPlay = null;
-
-        switch(audio)
-        {
-            case Audio.EnemyExplosion:
-                clipToPlay = enemyExplosion;
-                break;
-            case Audio.PlasmaShot:
-                clipToPlay = plasmaShotSound;
-                break;
-            case Audio.WorldExplosion:
-                clipToPlay = worldExplosion;
-                break;
-        }
+        AudioClip clipToPlay = audioClips[(int)audio];
 
         audioSource.PlayOneShot(clipToPlay);
     }

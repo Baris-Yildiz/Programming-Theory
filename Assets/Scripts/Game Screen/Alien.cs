@@ -34,6 +34,7 @@ public class Alien : Enemy
    
     IEnumerator Shoot()
     {
+        MusicManager.Instance.PlayAudio(Audio.AlienShot);
         GameObject bullet = transform.GetChild(0).gameObject;
         bullet.SetActive(true);
         bullet.transform.position = gameObject.transform.position;

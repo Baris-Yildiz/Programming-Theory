@@ -6,5 +6,6 @@ public enum Audio
 {
     PlasmaShot,
     EnemyExplosion,
-    WorldExplosion
+    WorldExplosion,
+    AlienShot
 }

@@ -168,7 +168,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 1000011128802252, guid: 96730f8640590934eacb6f860058e7f9, type: 3}
-  explosionSound: {fileID: 8300000, guid: d4aee29185389894b9cc0d8873904a49, type: 3}
 --- !u!82 &42630164
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1629,9 +1628,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f4cb9fee51c6224f838a1ebbafcb8c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plasmaShotSound: {fileID: 8300000, guid: 4310474905e266640852f43bd609a1a4, type: 3}
-  enemyExplosion: {fileID: 8300000, guid: d4aee29185389894b9cc0d8873904a49, type: 3}
-  worldExplosion: {fileID: 8300000, guid: c2153dcd0edd22f40bdebf613271bae7, type: 3}
+  audioClips:
+  - {fileID: 8300000, guid: 4310474905e266640852f43bd609a1a4, type: 3}
+  - {fileID: 8300000, guid: d4aee29185389894b9cc0d8873904a49, type: 3}
+  - {fileID: 8300000, guid: c2153dcd0edd22f40bdebf613271bae7, type: 3}
+  - {fileID: 8300000, guid: 06ada5590eba8d6489b36c6f3c54ff78, type: 3}
   plasmaShot: {fileID: 4334997212928914065, guid: 09a7264cf13992a4b8ef1e3bef02ad90, type: 3}
 --- !u!1 &1531494643
 GameObject:
